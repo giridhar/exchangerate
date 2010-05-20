@@ -13,13 +13,15 @@ class ExchangeRate
 
   def convert(from_curr,to_curr,amount)
     begin
-      raise UnsupportedCurrencyException, "The currency is not supported " if !SUPPORTED_CODES.include?(from_curr) || !SUPPORTED_CODES.include?(to_curr)
+      raise UnsupportedCurrencyException if !SUPPORTED_CODES.include?(from_curr) || !SUPPORTED_CODES.include?(to_curr)
       http = Net::HTTP.new(HOST, 80)
       url = "/"+from_curr+"/"+to_curr+"/"+amount.to_s+"?k=#{@api_key}"
       response = http.get(url)
       return response.body
-    rescue => e
-      puts "Error: #{e}"
+    rescue UnsupportedCurrencyException => e
+      raise UnsupportedCurrencyException
+    rescue => err_msg
+      puts #{err_msg}
     end
   end
 end

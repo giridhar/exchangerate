@@ -1,7 +1,7 @@
-= EchangeRate 
+= ExchangeRate 
 
 == Description
-This is a Ruby interface into the exchangerate-api service.
+This is a Ruby interface into the exchangerate-api service. http://www.exchangerate-api.com/ claims to serv accurate currency exchange rates from the European Central Reserve Bank as they are released.
 
 == Installation
 
@@ -11,11 +11,15 @@ gem install exchangerate
 
 Before you use this library please get the api key from http://www.exchangerate-api.com/api-key
 
-require 'rubygems' \n 
-require 'exchangerate' \n
-
-er=ExchangeRate.new("my-api-key") \n
-er.convert("USD","INR","300.00") \n
-
-
+	require 'rubygems' 
+	require 'exchangerate' 
+	
+	#To convert 300 USD to Indian Rupee 
+	er=ExchangeRate.new("my-api-key") 
+	er.convert("USD","INR","300.00")
+	=>"14047.51"
+	
+        #To convert USD to EUR
+	er.convert("USD","INR","300.00")
+	=>"243.23"
 
