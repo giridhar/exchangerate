@@ -5,17 +5,17 @@ This is a Ruby interface into the exchangerate-api service.
 
 == Installation
 
-gem install exhangerate
+gem install exchangerate
 
 == Usage 
 
 Before you use this library please get the api key from http://www.exchangerate-api.com/api-key
 
-require 'rubygems'
-require 'exchangerate'
+require 'rubygems' \n 
+require 'exchangerate' \n
 
-er=ExchangeRate.new("my-api-key")
-er.convert("USD","INR","300.00")
+er=ExchangeRate.new("my-api-key") \n
+er.convert("USD","INR","300.00") \n
 
 
 
